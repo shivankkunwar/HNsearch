@@ -18,7 +18,7 @@ function Home() {
   const search = async () => {
     try {
       setLoading(true);
-      const response = await axios.get(`http://hn.algolia.com/api/v1/search?query=${query}`);
+      const response = await axios.get(`https://hn.algolia.com/api/v1/search?query=${query}`);
       setResults(response.data.hits);
       setSearched(true);
     } catch (error) {
