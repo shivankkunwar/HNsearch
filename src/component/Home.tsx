@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 
 
 interface Result {
@@ -77,7 +77,10 @@ function Home() {
         <ul className="mt-8 space-y-4">
         {results.map((result) => (
           <li key={result.objectID} className="p-4 bg-gray-100 rounded-lg shadow-md">
-            <a className="text-2xl font-medium text-gray-700 hover:text-blue-500" href={`/item/${result.objectID}`}>{result.title}</a>
+            <Link to = {`/item/${result.objectID}`}>
+            <a className="text-2xl font-medium text-gray-700 hover:text-blue-500">{result.title}</a>
+            </Link>
+            
           </li>
         ))}
         </ul>
