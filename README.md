@@ -1,30 +1,25 @@
-# React + TypeScript + Vite
+# Project Name: Hacker News Search
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
+This project is a React web application that allows users to search for posts on Hacker News and view details about each post.
 
-Currently, two official plugins are available:
+## Features
+- **Home Screen**: The home screen features a search field at the top and a list of search results below the search field. When a query is entered in the search field, the search results API is triggered and the list of search results is populated below.
+- **Post Detail Screen**: Clicking on a search result navigates the user to the post detail screen where the details of the selected post are displayed. The details are fetched by calling the Get item API using the objectID obtained from the search results.
+- **APIs Used**: The application uses the Hacker News Search API to fetch the search results and post details.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Installation
+- Clone the repository: `git clone <repository-url>`
+- Navigate to the project directory: `cd <project-name>`
+- Install the dependencies: `npm install`
+- Start the application: `npm run dev`
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Usage
+- Enter a search query in the search field on the Home screen.
+- Click on a search result to view the post details.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
