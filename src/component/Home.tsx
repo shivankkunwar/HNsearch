@@ -12,12 +12,26 @@ function Home() {
   const [query, setQuery] = useState<string>('');
   const [results, setResults] = useState<Result[]>([]);
 
+  const [loading, setLoading] = useState<boolean>(false);
+
   const search = async () => {
-    const response = await axios.get(`http://hn.algolia.com/api/v1/search?query=${query}`);
-    setResults(response.data.hits);
+    try {
+      setLoading(true);
+      const response = await axios.get(`http://hn.algolia.com/api/v1/search?query=${query}`);
+      setResults(response.data.hits);
+    } catch (error) {
+      console.error(error);
+     
+    } finally {
+      setLoading(false);
+    }
   };
+
+  if (loading) {
+    return <div className="flex justify-center items-center h-screen text-3xl font-bold text-gray-600">Loading...</div>;
+   }
   return (
-    <div className="max-w-4xl mx-auto p-8 bg-white rounded-lg shadow-lg">
+    <div className="max-w-4xl mx-auto p-8 bg-white rounded-lg ">
       <div className="flex justify-between">
         <div className="inline-flex border rounded w-7/12 px-2 lg:px-6 h-12 bg-transparent">
           <div className="flex flex-wrap items-stretch w-full h-full mb-6 relative">
