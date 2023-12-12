@@ -18,12 +18,12 @@ const PostDetail = () => {
 
  useEffect(() => {
   const fetchPost = async () => {
-    const response = await axios.get(`http://hn.algolia.com/api/v1/items/${id}`);
+    const response = await axios.get(`https://hn.algolia.com/api/v1/items/${id}`);
     setPost(response.data);
   };
 
   fetchPost();
- }, []);
+ }, [id]);
 
  if (!post) {
   return <div className="flex justify-center items-center h-screen text-3xl font-bold text-gray-600">Loading...</div>;
