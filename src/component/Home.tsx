@@ -13,12 +13,14 @@ function Home() {
   const [results, setResults] = useState<Result[]>([]);
 
   const [loading, setLoading] = useState<boolean>(false);
+  const [searched, setSearched] = useState<boolean>(false);
 
   const search = async () => {
     try {
       setLoading(true);
       const response = await axios.get(`http://hn.algolia.com/api/v1/search?query=${query}`);
       setResults(response.data.hits);
+      setSearched(true);
     } catch (error) {
       console.error(error);
      
@@ -31,12 +33,12 @@ function Home() {
     return <div className="flex justify-center items-center h-screen text-3xl font-bold text-gray-600">Loading...</div>;
    }
   return (
-    <div className="max-w-4xl mx-auto p-8 bg-white rounded-lg ">
+    <div className={`max-w-4xl mx-auto p-8 bg-white rounded-lg transition-all duration-500 ${searched ? 'mt-4' : 'mt-40'}`}>
       <div className="flex justify-between">
-        <div className="inline-flex border rounded w-7/12 px-2 lg:px-6 h-12 bg-transparent">
+        <div className="inline-flex border rounded w-11/12 px-2 lg:px-6 h-12 bg-transparent">
           <div className="flex flex-wrap items-stretch w-full h-full mb-6 relative">
             <div className="flex">
-              <span className="flex items-center leading-normal bg-transparent rounded rounded-r-none border border-r-0 border-none lg:px-3 py-2 whitespace-no-wrap text-grey-dark text-sm">
+              <span className="flex items-center leading-normal bg-transparent rounded rounded-r-none border border-r-0 border-none lg:px-3 py-2 whitespace-no-wrap text-black ">
                 <svg
                   width="18"
                   height="18"
@@ -62,7 +64,7 @@ function Home() {
             </div>
             <input
               type="text"
-              className="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px flex-1 border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-xs lg:text-base text-black font-thin"
+              className="flex-shrink flex-grow flex-auto leading-normal tracking-wide w-px flex-1 border border-none border-l-0 rounded rounded-l-none px-3 relative focus:outline-none text-xxs lg:text-xs lg:text-base text-black "
               placeholder="Search"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
