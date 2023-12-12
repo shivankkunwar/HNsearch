@@ -23,7 +23,7 @@ const PostDetail = () => {
   };
 
   fetchPost();
- }, [id]);
+ }, []);
 
  if (!post) {
   return <div className="flex justify-center items-center h-screen text-3xl font-bold text-gray-600">Loading...</div>;
